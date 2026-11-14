@@ -1,5 +1,4 @@
 fastapi==0.162.7
-uvicorn[standard]==0.30.6
 sqlalchemy==2.0.35
 python-dotenv==1.0.1
 requests==2.32.3
@@ -11,5 +10,3 @@ scikit-learn==1.9.0
 xgboost==3.4.1
 joblib==1.6.0
 scipy==1.18.1
-# Only needed if you switch DATABASE_URL to Postgres:
-psycopg2-binary==2.9.10

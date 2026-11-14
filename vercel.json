@@ -3,7 +3,8 @@
   "buildCommand": "npm --prefix frontend ci && npm --prefix frontend run build",
   "functions": {
     "app.py": {
-      "maxDuration": 60
+      "maxDuration": 60,
+      "excludeFiles": "{frontend/src/**,frontend/public/**,frontend/package*.json,frontend/vite.config.js,backend/retrain_compatible_model.py,backend/README.md,backend/API_CONTRACT_FOR_FRONTEND.md,**/tests/**,**/__tests__/**,**/test_*.py,**/*.test.py,**/benchmarks/**,**/examples/**,**/docs/**,**/documentation/**}"
     }
   }
 }
