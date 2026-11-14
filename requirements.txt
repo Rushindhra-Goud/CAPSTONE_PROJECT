@@ -7,6 +7,6 @@ numpy==2.5.4
 pydantic==2.9.2
 # The model .pkl files were saved with scikit-learn 1.9.0 -- keep this EXACT.
 scikit-learn==1.9.0
-xgboost==3.4.1
+xgboost-cpu==3.4.1
 joblib==1.6.0
 scipy==1.18.1
