@@ -47,7 +47,7 @@ app.include_router(hotspots.router, tags=["Hotspots"])
 app.include_router(alerts.router, tags=["Alerts"])
 
 
-@app.get("/", tags=["Health"])
+@app.get("/api", tags=["Health"])
 def root():
     return {"status": "SafeRoute API is running", "docs": "/docs"}
 

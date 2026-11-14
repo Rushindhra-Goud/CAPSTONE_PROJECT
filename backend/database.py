@@ -16,7 +16,12 @@ load_dotenv()
 
 # Falls back to local SQLite if no DATABASE_URL is set -- lets you start coding
 # today without waiting to set up Supabase/Railway.
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./saferoute.db")
+_default_database_url = (
+    "sqlite:////tmp/saferoute.db"
+    if os.getenv("VERCEL")
+    else "sqlite:///./saferoute.db"
+)
+DATABASE_URL = os.getenv("DATABASE_URL", _default_database_url)
 # Render/Heroku-style Postgres URLs start with postgres:// which SQLAlchemy 2 rejects.
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)

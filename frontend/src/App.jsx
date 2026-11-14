@@ -9,7 +9,9 @@ import {
 import "leaflet/dist/leaflet.css";
 import "./index.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV ? "http://127.0.0.1:8000" : "");
 
 function App() {
   const [hotspots, setHotspots] = useState([]);
@@ -37,7 +39,7 @@ function App() {
       console.error(err);
       setApiConnected(false);
       setError(
-        "Unable to connect to the SafeRoute backend. Make sure the backend is running on port 8000."
+        "Unable to connect to the SafeRoute service. Please try again later."
       );
     } finally {
       setLoadingHotspots(false);
@@ -97,7 +99,7 @@ function App() {
         );
       } else {
         setError(
-          "Unable to calculate risk. Please make sure the backend is running."
+          "Unable to calculate risk. Please try again later."
         );
       }
     } finally {

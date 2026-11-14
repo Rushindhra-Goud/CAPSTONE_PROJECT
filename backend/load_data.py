@@ -6,11 +6,13 @@ different version without re-checking the model's expected columns.
 Run this once (and again any time the CSV is updated) with:
     python load_data.py
 """
+from pathlib import Path
+
 import pandas as pd
 from database import engine, Base, SessionLocal
 from models.accident import Accident
 
-CSV_PATH = "cleaned_accidents.csv"  # place the CSV in this same folder
+CSV_PATH = Path(__file__).with_name("cleaned_accidents.csv")
 
 
 def load():

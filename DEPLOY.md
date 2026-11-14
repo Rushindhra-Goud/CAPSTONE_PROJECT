@@ -1,4 +1,23 @@
-# Deploy SafeRoute on Render (free)
+# Deploy SafeRoute on Vercel
+
+The root project is configured to deploy the React frontend and FastAPI API
+together as one Vercel project. The frontend calls the API on the same origin;
+the API builds its read-only SQLite data in `/tmp` when a serverless instance
+starts. The SQLite copy is temporary and is rebuilt from the included CSV.
+
+1. Import `Rushindhra-Goud/CAPSTONE_PROJECT` from the Vercel dashboard, or run
+   `npx vercel` from the repository root and follow the prompts.
+2. Leave the project root set to `.`. Vercel uses `vercel.json` to build the
+   frontend and `app.py` to serve the frontend and API.
+3. Optionally add `OWM_API_KEY` in Vercel project settings to enable live
+   weather. The site works without it, using the existing weather fallback.
+4. Deploy. Verify `/health`, `/hotspots`, and the site homepage on the assigned
+   Vercel domain.
+
+The default Vercel URL hosts both the website and its API; no separate backend
+service or `VITE_API_URL` setting is needed.
+
+## Deploy SafeRoute on Render
 
 ## 1. Push to GitHub
 ```bash
